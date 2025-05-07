@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Job Listings - Baroque Amoka Careers</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      display: flex;
+      background-color: #f4f4f4;
+    }
+    .sidebar {
+      width: 220px;
+      background-color: #2c3e50;
+      color: white;
+      height: 100vh;
+      padding: 20px 0;
+    }
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 15px 25px;
+      margin: 5px 0;
+    }
+    .sidebar a:hover {
+      background-color: #34495e;
+    }
+    .content {
+      flex: 1;
+      padding: 30px;
+    }
+    .content h1 {
+      margin-bottom: 20px;
+    }
+    .job-card {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .job-card h3 {
+      margin: 0;
+      color: #333;
+    }
+    .job-card p {
+      margin: 10px 0;
+      color: #666;
+    }
+    .job-card button {
+      background-color: #2980b9;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .job-card button:hover {
+      background-color: #3498db;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Job List</h2>
+    <a href="index.html">Home</a>
+    <a href="job-list.html">Job List</a>
+    <a href="job-seekers.html">Job Seekers</a>
+    <a href="contact.html">Contact</a>
+   
+  </div>
+
+  <div class="content">
+    <h1>Posted Jobs</h1>
+
+    <div class="job-card">
+      <h3>Frontend Developer</h3>
+      <p>Location: Windhoek, Namibia</p>
+      <p>Posted: April 30, 2025</p>
+      <button onclick="location.href='job-detail.html?id=frontend-dev'">View Details</button>
+    </div>
+
+    <div class="job-card">
+      <h3>Marketing Executive</h3>
+      <p>Location: Cape Town, South Africa</p>
+      <p>Posted: May 2, 2025</p>
+      <button onclick="location.href='job-detail.html?id=marketing-exec'">View Details</button>
+    </div>
+
+    <div class="job-card">
+      <h3>Graphic Designer</h3>
+      <p>Location: Luanda, Angola</p>
+      <p>Posted: May 5, 2025</p>
+      <button onclick="location.href='job-detail.html?id=graphic-designer'">View Details</button>
+    </div>
+
+  </div>
+
+</body>
+</html>

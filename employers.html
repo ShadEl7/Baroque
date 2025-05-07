@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employers - Baroque Amoka Careers</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f9fc;
+      color: #333;
+    }
+    header {
+      background-color: #2b2d42;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      background-color: #8d99ae;
+      padding: 1rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+    h2 {
+      color: #2b2d42;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    .cta a {
+      background-color: #2b2d42;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    .cta a:hover {
+      background-color: #1a1c31;
+    }
+    .dashboard {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .card {
+      background-color: #edf2f4;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      margin-top: 0;
+    }
+    .job-posting-form input, .job-posting-form textarea, .job-posting-form select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .job-posting-form button {
+      background-color: #2b2d42;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .job-posting-form button:hover {
+      background-color: #1a1c31;
+    }
+    footer {
+      background-color: #2b2d42;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Employers Portal - Baroque Amoka Careers</h1>
+  <p>Find the best candidates across Africa with our intuitive tools and dashboard</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="employers.html">Employers</a>
+  <a href="job-seekers.html">Job Seekers</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section>
+  <h2>Why Hire With Baroque Amoka?</h2>
+  <ul>
+    <li>Access a diverse pool of qualified talent across Namibia, Angola, and South Africa</li>
+    <li>Simple and fast job posting interface with instant visibility</li>
+    <li>Dedicated employer dashboard for managing job listings and applicants</li>
+    <li>Real-time applicant tracking and notifications</li>
+    <li>Verified resumes and filtering tools to ease your hiring process</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Post a New Job</h2>
+  <form class="job-posting-form">
+    <label>Job Title</label>
+    <input type="text" placeholder="e.g. Sales Manager"/>
+
+    <label>Location</label>
+    <input type="text" placeholder="e.g. Windhoek, Namibia"/>
+
+    <label>Category</label>
+    <select>
+      <option>Engineering</option>
+      <option>Sales & Marketing</option>
+      <option>Finance</option>
+      <option>Education</option>
+      <option>Healthcare</option>
+      <option>Other</option>
+    </select>
+
+    <label>Job Description</label>
+    <textarea rows="5" placeholder="Describe responsibilities, requirements, salary, etc."></textarea>
+
+    <button type="submit">Post Job</button>
+  </form>
+</section>
+
+<section>
+  <h2>Your Employer Dashboard</h2>
+  <div class="dashboard">
+    <div class="card">
+      <h3>My Jobs</h3>
+      <p>You have <strong>3 active job listings</strong>.</p>
+      <ul>
+        <li>Software Engineer - 18 applicants</li>
+        <li>HR Manager - 9 applicants</li>
+        <li>Project Coordinator - 5 applicants</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Recent Applicants</h3>
+      <p>New applications in the last 24 hours:</p>
+      <ul>
+        <li>Maria K. - Software Engineer</li>
+        <li>Sam N. - HR Manager</li>
+        <li>Lucia P. - Project Coordinator</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Tips for Better Hiring</h3>
+      <ul>
+        <li>Write clear, specific job titles</li>
+        <li>Include salary ranges when possible</li>
+        <li>Use inclusive language to attract diverse talent</li>
+        <li>Respond to applicants within 2-3 business days</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cta" style="text-align:center; margin-top: 3rem;">
+  <a href="employer-dashboard.html">Go to Full Dashboard</a>
+</section>
+
+<footer>
+  <p>&copy; 2025 Baroque Amoka Careers | employers@baroqueamoka.com | +264 81 456 7890</p>
+</footer>
+
+</body>
+</html>

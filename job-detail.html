@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Job Details - Baroque Amoka Careers</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f8f8f8;
+      display: flex;
+    }
+    .sidebar {
+      width: 220px;
+      background-color: #2c3e50;
+      color: white;
+      height: 100vh;
+      padding: 20px 0;
+    }
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 15px 25px;
+      margin: 5px 0;
+    }
+    .sidebar a:hover {
+      background-color: #34495e;
+    }
+    .content {
+      flex: 1;
+      padding: 30px;
+    }
+    .job-header h1 {
+      margin-bottom: 10px;
+    }
+    .job-meta {
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .job-description {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+    .apply-btn {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .apply-btn:hover {
+      background-color: #2ecc71;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Job Details</h2>
+    <a href="index.html">Home</a>
+    <a href="job-list.html">Job List</a>
+    <a href="job-seekers.html">Job Seekers</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="content">
+    <div class="job-header">
+      <h1 id="job-title">Loading...</h1>
+      <div class="job-meta" id="job-meta"></div>
+    </div>
+
+    <div class="job-description" id="job-description">
+      Please wait while the job details are loading...
+    </div>
+
+    <button class="apply-btn" onclick="applyNow()">Apply Now</button>
+  </div>
+
+  <script>
+    const jobData = {
+      "frontend-dev": {
+        title: "Frontend Developer",
+        location: "Windhoek, Namibia",
+        posted: "April 30, 2025",
+        description: `
+          We are looking for a talented Frontend Developer to join our growing tech team. As a Frontend Developer, you will be responsible for implementing visual elements 
+          that users see and interact with in a web application. You should be passionate about building intuitive and engaging user interfaces.
+          
+          <strong>Responsibilities:</strong>
+          <ul>
+            <li>Develop new user-facing features using HTML, CSS, JavaScript, and React</li>
+            <li>Ensure the technical feasibility of UI/UX designs</li>
+            <li>Optimize applications for maximum speed and scalability</li>
+            <li>Collaborate with designers and backend developers to integrate APIs</li>
+            <li>Participate in code reviews and maintain code quality</li>
+          </ul>
+
+          <strong>Requirements:</strong>
+          <ul>
+            <li>Proficiency in HTML5, CSS3, JavaScript, and modern frontend frameworks like React</li>
+            <li>Experience with version control tools like Git</li>
+            <li>Understanding of responsive design and cross-browser compatibility</li>
+            <li>Knowledge of RESTful APIs and integration</li>
+            <li>Ability to work in an agile environment and meet deadlines</li>
+          </ul>
+        `
+      },
+      "marketing-exec": {
+        title: "Marketing Executive",
+        location: "Cape Town, South Africa",
+        posted: "May 2, 2025",
+        description: `
+          We are seeking a dynamic and results-driven Marketing Executive to join our creative marketing team. You will be responsible for promoting our brand, 
+          managing campaigns, and analyzing market trends to support business growth.
+
+          <strong>Responsibilities:</strong>
+          <ul>
+            <li>Plan, execute, and manage marketing campaigns across digital and traditional platforms</li>
+            <li>Conduct market research to identify trends and customer needs</li>
+            <li>Develop content for social media, newsletters, and press releases</li>
+            <li>Collaborate with design and product teams to create promotional materials</li>
+            <li>Monitor KPIs and report on campaign effectiveness</li>
+          </ul>
+
+          <strong>Requirements:</strong>
+          <ul>
+            <li>Bachelor’s degree in Marketing, Communications, or related field</li>
+            <li>2+ years of experience in marketing or brand management</li>
+            <li>Strong understanding of SEO, PPC, and social media marketing</li>
+            <li>Excellent communication and presentation skills</li>
+            <li>Ability to analyze data and make data-driven decisions</li>
+          </ul>
+        `
+      },
+      "graphic-designer": {
+        title: "Graphic Designer",
+        location: "Luanda, Angola",
+        posted: "May 5, 2025",
+        description: `
+          Our team is looking for a talented and detail-oriented Graphic Designer to craft innovative visuals for both digital and print media. 
+          You'll help shape the visual identity of our brand across various channels.
+
+          <strong>Responsibilities:</strong>
+          <ul>
+            <li>Create compelling visual content for marketing materials, websites, ads, and social media</li>
+            <li>Develop illustrations, logos, and other designs using software or by hand</li>
+            <li>Work closely with the marketing team to produce visually appealing campaigns</li>
+            <li>Ensure brand consistency across all projects</li>
+            <li>Revise designs based on stakeholder feedback</li>
+          </ul>
+
+          <strong>Requirements:</strong>
+          <ul>
+            <li>Proficiency in Adobe Creative Suite (Photoshop, Illustrator, InDesign)</li>
+            <li>Strong portfolio demonstrating creative design capabilities</li>
+            <li>Excellent attention to detail and creativity</li>
+            <li>Strong communication and collaboration skills</li>
+            <li>Ability to manage multiple projects and meet deadlines</li>
+          </ul>
+        `
+      }
+    };
+
+    function getJobIdFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("id");
+    }
+
+    function loadJobDetails() {
+      const jobId = getJobIdFromURL();
+      const job = jobData[jobId];
+
+      if (job) {
+        document.getElementById("job-title").textContent = job.title;
+        document.getElementById("job-meta").textContent = `Location: ${job.location} | Posted: ${job.posted}`;
+        document.getElementById("job-description").innerHTML = job.description;
+      } else {
+        document.getElementById("job-title").textContent = "Job Not Found";
+        document.getElementById("job-meta").textContent = "";
+        document.getElementById("job-description").textContent = "Sorry, the job you're looking for doesn't exist.";
+        document.querySelector(".apply-btn").style.display = "none";
+      }
+    }
+
+    function applyNow() {
+      const jobId = getJobIdFromURL();
+      window.location.href = `apply-form.html?id=${jobId}`;
+    }
+
+    window.onload = loadJobDetails;
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home - Baroque Amoka Careers</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f9fc;
+      color: #333;
+    }
+    header {
+      background-color: #2b2d42;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      background-color: #8d99ae;
+      padding: 1rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+    .hero {
+      text-align: center;
+      background-color: #edf2f4;
+      padding: 3rem 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      color: #2b2d42;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: #444;
+    }
+    .cta {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .cta a {
+      background-color: #2b2d42;
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    .cta a:hover {
+      background-color: #1a1c31;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    .featured-jobs {
+      background-color: #edf2f4;
+      padding: 2rem 1rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+    }
+    .job-card {
+      background-color: #fff;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    .job-card h3 {
+      color: #2b2d42;
+    }
+    .job-card p {
+      font-size: 1rem;
+      color: #444;
+    }
+    footer {
+      background-color: #2b2d42;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+    .newsletter {
+      margin-top: 2rem;
+      text-align: center;
+      background-color: #2b2d42;
+      color: #fff;
+      padding: 2rem 1rem;
+      border-radius: 8px;
+    }
+    .newsletter input[type="email"] {
+      padding: 0.75rem;
+      width: 60%;
+      margin-right: 1rem;
+      border-radius: 5px;
+      border: none;
+    }
+    .newsletter button {
+      padding: 0.75rem 1.5rem;
+      background-color: #8d99ae;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .newsletter button:hover {
+      background-color: #2b2d42;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Baroque Amoka Careers</h1>
+  <p>Your gateway to meaningful employment across Africa</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="employers.html">Employers</a>
+  <a href="job-seekers.html">Job Seekers</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section class="hero">
+  <h2>Connecting Talent with Opportunity</h2>
+  <p>We are committed to helping people across Namibia, Angola, and South Africa build successful careers and grow the workforce of tomorrow.</p>
+  <div class="cta">
+    <a href="job-list.html">Browse Jobs</a>
+    <a href="apply-form.html" style="margin-left: 1rem;">Apply Now</a>
+  </div>
+</section>
+
+<section>
+  <h2>What We Offer</h2>
+  <ul>
+    <li>Job Listings for All Experience Levels</li>
+    <li>Resume Submission & Career Support</li>
+    <li>Employer Dashboard & Job Management</li>
+    <li>Secure Applicant Tracking & Notifications</li>
+    <li>Local & International Job Market Access</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Success Stories</h2>
+  <p>“Thanks to Baroque Amoka, I found my dream job in Windhoek within two weeks of applying!” – <em>Maria K.</em></p>
+  <p>“As an employer, we've filled 8 positions using their dashboard – it’s seamless and efficient.” – <em>HR Manager, LusakaTech</em></p>
+</section>
+
+<section class="featured-jobs">
+  <h2>Featured Jobs</h2>
+  <div class="job-card">
+    <h3>Software Engineer - Windhoek</h3>
+    <p>Join a leading software company in Windhoek. Competitive salary and benefits. Apply now to be part of an innovative tech team.</p>
+    <a href="job-detail.html">View Details</a>
+  </div>
+  <div class="job-card">
+    <h3>Marketing Specialist - Luanda</h3>
+    <p>Help a top brand grow in Luanda! We’re looking for creative individuals with strong digital marketing skills.</p>
+    <a href="job-detail.html">View Details</a>
+  </div>
+  <div class="job-card">
+    <h3>HR Manager - Cape Town</h3>
+    <p>Be a key part of the HR department in Cape Town. This role offers a chance to influence company culture and employee satisfaction.</p>
+    <a href="job-detail.html">View Details</a>
+  </div>
+</section>
+
+<section>
+  <h2>Start Your Journey Today</h2>
+  <p>Whether you're a job seeker or an employer, Baroque Amoka Careers provides the tools and support you need. Join thousands already succeeding with us.</p>
+  <div class="cta">
+    <a href="job-seekers.html">I'm Looking for Work</a>
+    <a href="employers.html" style="margin-left: 1rem;">I'm Hiring</a>
+  </div>
+</section>
+
+<section class="newsletter">
+  <h2>Stay Updated</h2>
+  <p>Subscribe to our newsletter and get the latest job listings and career tips right to your inbox.</p>
+  <form action="newsletter-subscribe.php" method="POST">
+    <input type="email" name="email" placeholder="Enter your email" required />
+    <button type="submit">Subscribe</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 Baroque Amoka Careers | info@baroqueamoka.com | +264 81 123 4567</p>
+</footer>
+
+</body>
+</html>

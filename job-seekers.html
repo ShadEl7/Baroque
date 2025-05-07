@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Seekers - Baroque Amoka Careers</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f9fc;
+      color: #333;
+    }
+    header {
+      background-color: #2b2d42;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      background-color: #8d99ae;
+      padding: 1rem;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+    h2 {
+      color: #2b2d42;
+    }
+    ul, ol {
+      margin-left: 1.5rem;
+    }
+    button {
+      background-color: #ef233c;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      margin-top: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #d90429;
+    }
+    .job-listings {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .job-listings article {
+      padding: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background: #f1f1f1;
+    }
+    footer {
+      background-color: #2b2d42;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Job Seekers</h1>
+  <p>Find your dream job and grow your career</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="employers.html">Employers</a>
+  <a href="job-seekers.html">Job Seekers</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section>
+  <h2>Start Your Career Journey</h2>
+  <p>We connect talented individuals like you with top employers across Africa and beyond.</p>
+  <button onclick="location.href='signup-login.html'"><i class="fas fa-user-plus"></i> Create Account</button>
+</section>
+
+<section>
+  <h2>How It Works</h2>
+  <ol>
+    <li>Sign up and create your free profile.</li>
+    <li>Upload your resume and highlight your skills.</li>
+    <li>Search for jobs tailored to your interests.</li>
+    <li>Apply, interview, and get hired!</li>
+  </ol>
+</section>
+
+<section>
+  <h2>Benefits for Job Seekers</h2>
+  <ul>
+    <li>Get matched with employers based on your skills and preferences.</li>
+    <li>Receive alerts on job openings that fit your profile.</li>
+    <li>Access career resources and interview tips.</li>
+    <li>Grow your network and discover hidden opportunities.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Top Job Openings</h2>
+  <div class="job-listings">
+    <article>
+      <h3>Software Engineer</h3>
+      <p>Location: Windhoek, Namibia</p>
+      <a href="apply.html" class="btn">Apply Now</a>
+    </article>
+    <article>
+      <h3>Marketing Specialist</h3>
+      <p>Location: Cape Town, South Africa</p>
+      <a href="apply.html" class="btn">Apply Now</a>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>Success Stories</h2>
+  <blockquote>
+    <p>"Baroque Amoka Careers helped me land my dream role in less than a month!"</p>
+    <footer>— Amanda T., HR Officer</footer>
+  </blockquote>
+</section>
+
+<footer>
+  <p>&copy; 2025 Baroque Amoka Careers | info@baroqueamoka.com | +264 81 123 4567</p>
+</footer>
+
+</body>
+</html>

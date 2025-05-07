@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employer Login - Baroque Amoka Careers</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #4b2e83;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #372260;
+      padding: 0.5rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 3rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #4b2e83;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem;
+      width: 100%;
+      background-color: #4b2e83;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #372260;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem 0;
+      background-color: #4b2e83;
+      color: white;
+      margin-top: 3rem;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 1rem;
+      color: green;
+    }
+
+    .error {
+      color: red;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Baroque Amoka Careers</h1>
+    <p>Empowering Your Workforce</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="employer-login.html">Employer Login</a>
+    <a href="post-job.html">Post a Job</a>
+    <a href="dashboard.html">Dashboard</a>
+  </nav>
+
+  <div class="container">
+    <h2>Employer Login</h2>
+    <form id="loginForm">
+      <label for="username">Username or Email</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required />
+
+      <button type="submit">Login</button>
+    </form>
+    <div class="message" id="loginMessage"></div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 Baroque Amoka Careers. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      // Simulated login check
+      if (user === "employer" && pass === "123456") {
+        document.getElementById("loginMessage").textContent = "Login successful! Redirecting to dashboard...";
+        setTimeout(() => window.location.href = "dashboard.html", 1500);
+      } else {
+        document.getElementById("loginMessage").textContent = "Invalid credentials. Try again.";
+        document.getElementById("loginMessage").style.color = "red";
+      }
+    });
+  </script>
+
+</body>
+</html>

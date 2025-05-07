@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Apply for Job - Baroque Amoka Careers</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #2c3e50;
+      color: white;
+      height: 100vh;
+      padding: 20px 0;
+      position: fixed;
+      left: 0;
+      top: 0;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 15px 25px;
+      margin: 5px 0;
+    }
+
+    .sidebar a:hover {
+      background-color: #34495e;
+    }
+
+    .main-content {
+      margin-left: 240px;
+      padding: 40px 30px;
+      width: 100%;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+
+    .job-meta {
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    input[type="file"] {
+      padding: 5px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background-color: #27ae60;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2ecc71;
+    }
+
+    @media screen and (max-width: 768px) {
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sidebar">
+    <h2>Apply</h2>
+    <a href="index.html">Home</a>
+    <a href="job-list.html">Job Listings</a>
+    <a href="job-seekers.html">Job Seekers</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <div class="main-content">
+    <div class="container">
+      <h1 id="job-title">Apply for Job</h1>
+      <div class="job-meta" id="job-meta"></div>
+
+      <form id="application-form" enctype="multipart/form-data">
+        <label for="full-name">Full Name *</label>
+        <input type="text" id="full-name" name="full-name" required>
+
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" name="phone" required pattern="[0-9+ ]+">
+
+        <label for="linkedin">LinkedIn Profile</label>
+        <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile">
+
+        <label for="portfolio">Portfolio or Website</label>
+        <input type="url" id="portfolio" name="portfolio" placeholder="https://yourportfolio.com">
+
+        <label for="resume">Upload Resume (PDF or Word) *</label>
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+
+        <label for="cover-letter">Cover Letter *</label>
+        <textarea id="cover-letter" name="cover-letter" rows="5" required></textarea>
+
+        <button type="submit">Submit Application</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const jobData = {
+      "frontend-dev": {
+        title: "Frontend Developer",
+        location: "Windhoek, Namibia"
+      },
+      "marketing-exec": {
+        title: "Marketing Executive",
+        location: "Cape Town, South Africa"
+      },
+      "graphic-designer": {
+        title: "Graphic Designer",
+        location: "Luanda, Angola"
+      }
+    };
+
+    function getJobIdFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("id");
+    }
+
+    function loadJobDetails() {
+      const jobId = getJobIdFromURL();
+      const job = jobData[jobId];
+
+      if (job) {
+        document.getElementById("job-title").textContent = `Apply for ${job.title}`;
+        document.getElementById("job-meta").textContent = `Location: ${job.location}`;
+      } else {
+        document.getElementById("job-title").textContent = "Job Not Found";
+        document.getElementById("job-meta").textContent = "";
+        document.getElementById("application-form").style.display = "none";
+      }
+    }
+
+    document.getElementById("application-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const formData = new FormData(form);
+      const jobId = getJobIdFromURL();
+
+      alert(`Application for ${jobData[jobId]?.title || "Unknown Job"} submitted successfully!`);
+
+      form.reset();
+    });
+
+    window.onload = loadJobDetails;
+  </script>
+
+</body>
+</html>

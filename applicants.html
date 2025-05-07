@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Applicants - Baroque Amoka Careers</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f7fb;
+      color: #333;
+    }
+    header {
+      background: #0a4275;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .sidebar {
+      width: 220px;
+      background-color: #1e2a38;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      padding-top: 100px;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .sidebar ul li a {
+      display: block;
+      padding: 15px;
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .sidebar ul li a:hover,
+    .sidebar ul li a.active {
+      background-color: #0a4275;
+    }
+    .main-content {
+      margin-left: 220px;
+      padding: 30px;
+    }
+    .content-section {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .applicant-card {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+    }
+    .applicant-card h3 {
+      margin: 0;
+    }
+    .applicant-card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #0a4275;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Applicants</h1>
+    <p>Review all applicants who have applied to your posted jobs.</p>
+  </header>
+
+  <nav class="sidebar">
+    <h2>Applicants</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a class="active" href="applicants.html">Applicants</a></li>
+      <li><a href="employers.html">Employers</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="settings.html">Settings</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-content">
+    <section class="content-section">
+      <h2>Applicant Submissions</h2>
+      <div id="applicantsList">
+        <!-- Dynamic content -->
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const applicants = JSON.parse(localStorage.getItem("applicants") || "[]");
+    const applicantsList = document.getElementById("applicantsList");
+
+    if (applicants.length === 0) {
+      applicantsList.innerHTML = "<p>No applicants submitted yet.</p>";
+    } else {
+      applicants.forEach(app => {
+        const div = document.createElement("div");
+        div.className = "applicant-card";
+        div.innerHTML = `
+          <h3>${app.name}</h3>
+          <p>Email: ${app.email}</p>
+          <p>Position: ${app.jobTitle}</p>
+          <a href="${app.resume}" download>Download Resume</a>
+        `;
+        applicantsList.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>

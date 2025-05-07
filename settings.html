@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Settings - Baroque Amoka Careers</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fb;
+      color: #333;
+    }
+
+    .wrapper {
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 240px;
+      background-color: #0a4275;
+      color: white;
+      padding: 30px 20px;
+    }
+
+    .sidebar h2 {
+      margin-top: 0;
+      font-size: 22px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .nav-link {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 20px 0;
+      font-size: 16px;
+      padding: 10px;
+      border-radius: 6px;
+      transition: background-color 0.2s;
+    }
+
+    .nav-link:hover {
+      background-color: #06325d;
+    }
+
+    .content {
+      flex-grow: 1;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #0a4275;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #0a4275;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .checkbox-group {
+      margin-top: 10px;
+    }
+
+    .checkbox-group label {
+      font-weight: normal;
+    }
+
+    .checkbox-group input {
+      margin-right: 10px;
+    }
+
+    button {
+      background-color: #0a4275;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #06325d;
+    }
+
+    @media screen and (max-width: 768px) {
+      .wrapper {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-link {
+        display: inline-block;
+        margin: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="sidebar">
+      <h2>Employer Menu</h2>
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="applicants.html" class="nav-link">Applicants</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="settings.html" class="nav-link">Settings</a>
+    </div>
+
+    <div class="content">
+      <div class="container">
+        <h1>Settings</h1>
+
+        <h2>Account Settings</h2>
+        <div class="form-group">
+          <label for="username">Name</label>
+          <input type="text" id="username" placeholder="Enter your name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" />
+        </div>
+        <div class="form-group">
+          <label for="password">New Password</label>
+          <input type="password" id="password" placeholder="Enter new password" />
+        </div>
+
+        <h2>Notification Preferences</h2>
+        <div class="checkbox-group">
+          <label><input type="checkbox" id="notify-applicants" checked /> Email me when I receive new applicants</label>
+        </div>
+        <div class="checkbox-group">
+          <label><input type="checkbox" id="notify-system" /> Notify me of system updates</label>
+        </div>
+
+        <button onclick="saveSettings()">Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function saveSettings() {
+      const settings = {
+        username: document.getElementById("username").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        notifyApplicants: document.getElementById("notify-applicants").checked,
+        notifySystem: document.getElementById("notify-system").checked
+      };
+
+      localStorage.setItem("userSettings", JSON.stringify(settings));
+      alert("Settings saved successfully!");
+    }
+
+    function loadSettings() {
+      const settings = JSON.parse(localStorage.getItem("userSettings") || "{}");
+      document.getElementById("username").value = settings.username || "";
+      document.getElementById("email").value = settings.email || "";
+      document.getElementById("password").value = settings.password || "";
+      document.getElementById("notify-applicants").checked = settings.notifyApplicants ?? true;
+      document.getElementById("notify-system").checked = settings.notifySystem || false;
+    }
+
+    loadSettings();
+  </script>
+
+</body>
+</html>

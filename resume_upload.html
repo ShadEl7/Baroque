@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Apply for Job - Baroque Amoka Careers</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f7fb;
+    }
+    header {
+      background-color: #0a4275;
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    .form-container {
+      max-width: 600px;
+      background: white;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .form-container h2 {
+      margin-bottom: 20px;
+      color: #0a4275;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #0a4275;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #06325d;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Apply for a Position</h1>
+    <p>Submit your details and resume</p>
+  </header>
+
+  <div class="form-container">
+    <h2>Applicant Form</h2>
+    <form id="applicantForm">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email Address" required />
+      <input type="text" id="jobTitle" placeholder="Position Applying For" required />
+      <input type="file" id="resume" accept=".pdf,.doc,.docx" required />
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("applicantForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const jobTitle = document.getElementById("jobTitle").value;
+      const resumeFile = document.getElementById("resume").files[0];
+
+      if (!resumeFile) {
+        alert("Please upload a resume.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function () {
+        const resumeData = reader.result;
+
+        // Store applicant details in localStorage
+        const applicants = JSON.parse(localStorage.getItem("applicants") || "[]");
+        applicants.push({
+          name: name,
+          email: email,
+          jobTitle: jobTitle,
+          resume: resumeData
+        });
+        localStorage.setItem("applicants", JSON.stringify(applicants));
+
+        // Simulate email notification
+        console.log(`📧 Email Notification:
+        New Applicant: ${name}
+        Email: ${email}
+        Applied for: ${jobTitle}`);
+
+        alert("Application submitted successfully! We will contact you soon.");
+        document.getElementById("applicantForm").reset();
+      };
+
+      reader.readAsDataURL(resumeFile);
+    });
+  </script>
+
+</body>
+</html>
